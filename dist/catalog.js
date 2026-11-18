@@ -1,0 +1,150 @@
+const english = {
+  brandLine: 'SPARE PARTS AND SERVICES', parts: 'Spare Parts', visit: 'Visit Us',
+  street: 'MSIMBAZI STREET', heading: 'Spare parts for your next repair.',
+  intro: 'SAMIDOM supplies quality vehicle spare parts to drivers, mechanics, and garages. Browse our catalog and ask us about fit, price, and availability before visiting.',
+  browse: 'Browse Spare Parts', heroAlt: 'Steering racks and boxed spare parts at SAMIDOM',
+  vehicles: 'VEHICLE MAKES', choose: 'Choose a category to see its parts.',
+  pickup: 'Collect your parts from our shop on Msimbazi Street.',
+  directions: 'Get Directions', call: 'Call Shop', hours: 'Opening Hours',
+  week: 'Monday–Saturday', time: '8:00 AM–6:30 PM', sunday: 'Sunday', closed: 'Closed',
+  number: 'Part number', availability: 'Confirm availability on WhatsApp before visiting.',
+  ask: 'Ask for price on WhatsApp', check: 'Check on WhatsApp'
+};
+
+const swahili = {
+  brandLine: 'VIPURI NA HUDUMA', parts: 'Vipuri', visit: 'Tutembelee',
+  street: 'MTAA WA MSIMBAZI', heading: 'Vipuri kwa ajili ya ukarabati wa gari lako.',
+  intro: 'SAMIDOM inauza vipuri vya magari kwa madereva, mafundi na gereji. Angalia katalogi yetu kisha tuulize kuhusu ulinganifu wa kipuri, bei na upatikanaji kabla ya kutembelea duka.',
+  browse: 'Angalia Vipuri', heroAlt: 'Reki za usukani na masanduku ya vipuri katika duka la SAMIDOM',
+  vehicles: 'CHAPA ZA MAGARI', choose: 'Chagua kategoria ili kuona vipuri vyake.',
+  pickup: 'Chukua vipuri vyako dukani kwetu, Mtaa wa Msimbazi.',
+  directions: 'Pata Maelekezo', call: 'Piga Simu', hours: 'Saa za Kazi',
+  week: 'Jumatatu–Jumamosi', time: '08:00–18:30', sunday: 'Jumapili', closed: 'Tumefunga',
+  number: 'Namba ya kipuri', availability: 'Thibitisha upatikanaji kupitia WhatsApp kabla ya kuja dukani.',
+  ask: 'Uliza bei kupitia WhatsApp', check: 'Uliza kupitia WhatsApp'
+};
+
+const categories = [
+  ['brakes', 'Brakes', 'Breki'], ['clutch', 'Clutch', 'Klachi'],
+  ['steering', 'Steering', 'Usukani'], ['suspension', 'Suspension', 'Mfumo wa Kusimamisha Gari'],
+  ['bearings', 'Bearings & Hubs', 'Bearing na Hub'], ['belts', 'Belts', 'Mikanda'],
+  ['pumps', 'Pumps', 'Pampu']
+];
+
+const parts = [
+  ['bearings', [1], 'Tapered roller bearing', 'Bearing ya rola za koni', '90366-20003', 'Toyota tapered roller bearing shown with its packaging.', 'Bearing ya Toyota yenye rola za koni, pamoja na kifurushi chake.'],
+  ['steering', [2, 3], 'Steering rack assemblies', 'Reki za usukani', '', 'Steering rack assemblies with protective boots. Ask the shop which version fits your vehicle.', 'Reki za usukani zenye mipira ya kinga. Uliza dukani aina inayolingana na gari lako.'],
+  ['pumps', [4], 'Vacuum pump', 'Pampu ya utupu', '14650-7T411', 'Gear-driven vacuum pump. Check compatibility with the shop.', 'Pampu ya utupu inayoendeshwa kwa gia. Thibitisha ulinganifu dukani.'],
+  ['brakes', [5], 'Toyota brake drum', 'Daramu ya breki ya Toyota', '42431-60250', 'Toyota brake drum with the part number marked on the rim.', 'Daramu ya breki ya Toyota yenye namba ya kipuri kwenye ukingo.'],
+  ['belts', [6], 'Toyota drive belt', 'Mkanda wa Toyota', '90916-T2006', 'Multi-rib drive belt. Confirm the correct belt for your engine.', 'Mkanda wenye mbavu nyingi. Thibitisha mkanda unaofaa injini yako.'],
+  ['suspension', [7], 'Suspension coil springs', 'Springi za kusimamisha gari', '', 'Coil springs for the suspension system. Share your vehicle details to check fit.', 'Springi za mfumo wa kusimamisha gari. Tuma taarifa za gari lako ili kuthibitisha ulinganifu.'],
+  ['bearings', [8], 'Wheel hub assembly', 'Hub ya gurudumu', '', 'Wheel hub assembly with a splined centre and mounting studs.', 'Hub ya gurudumu yenye meno katikati na bolti za kufungia.'],
+  ['brakes', [9], 'Toyota brake disc', 'Diski ya breki ya Toyota', '43512-60150', 'Toyota brake disc shown alongside its labelled packaging.', 'Diski ya breki ya Toyota pamoja na kifurushi chenye lebo.'],
+  ['clutch', [10], 'Toyota clutch disc', 'Diski ya klachi ya Toyota', '31250-60430', 'Clutch disc with the part number marked on the centre plate.', 'Diski ya klachi yenye namba ya kipuri kwenye sehemu ya katikati.'],
+  ['clutch', [11], 'EXEDY clutch disc', 'Diski ya klachi ya EXEDY', '30100-VB201', 'EXEDY replacement clutch disc with a sprung centre.', 'Diski mbadala ya klachi ya EXEDY yenye springi katikati.'],
+  ['clutch', [12, 16], 'Clutch master cylinder', 'Silinda kuu ya klachi', '', 'Hydraulic clutch component with a pushrod and mounting studs. Confirm fit with the shop.', 'Sehemu ya mfumo wa majimaji wa klachi yenye fimbo ya kusukuma na bolti za kufungia. Thibitisha ulinganifu dukani.'],
+  ['clutch', [13], 'Toyota clutch disc', 'Diski ya klachi ya Toyota', '31250-0K205', 'Toyota clutch disc shown with its labelled box.', 'Diski ya klachi ya Toyota pamoja na boksi lenye lebo.'],
+  ['clutch', [14], 'Nissan clutch cover', 'Kifuniko cha klachi cha Nissan', '30210-C8000', 'Nissan clutch cover shown in its labelled packaging.', 'Kifuniko cha klachi cha Nissan kwenye kifurushi chenye lebo.'],
+  ['bearings', [15], 'Toyota hub bearing', 'Bearing ya hub ya Toyota', '90369-T0003', 'Toyota hub bearing in protective wrapping alongside its labelled box.', 'Bearing ya hub ya Toyota kwenye kifurushi cha kinga, pamoja na boksi lenye lebo.'],
+  ['brakes', [17], 'Toyota Land Cruiser brake pad kit', 'Seti ya pedi za breki ya Toyota Land Cruiser', '04466-60190', 'Disc brake pad kit labelled for Land Cruiser. Ask the shop to confirm the exact model fit.', 'Seti ya pedi za breki yenye lebo ya Land Cruiser. Thibitisha dukani kama inafaa toleo la gari lako.']
+];
+
+const catalog = document.querySelector('#categories');
+const controls = document.createElement('div');
+controls.className = 'category-controls';
+const results = document.createElement('section');
+results.className = 'category-results';
+results.id = 'category-results';
+results.setAttribute('aria-labelledby', 'category-title');
+catalog.append(controls, results);
+
+let language = 'en';
+let selectedCategory = null;
+
+function photo(id, name) {
+  return `<img src="assets/part-${id}.jpg" alt="${name}" loading="lazy" width="400" height="205">`;
+}
+
+function renderPart(part, copy, openParts) {
+  const [, images, enName, swName, number, enDescription, swDescription, price] = part;
+  const name = language === 'en' ? enName : swName;
+  const description = language === 'en' ? enDescription : swDescription;
+  const reference = number ? `${name} (${number})` : name;
+  const message = language === 'en'
+    ? `Hello SAMIDOM, can you confirm fit, price, and availability for ${reference}?`
+    : `Habari SAMIDOM, naomba kuthibitisha ulinganifu, bei na upatikanaji wa ${reference}.`;
+  const priceText = price == null ? '' : new Intl.NumberFormat(language === 'en' ? 'en-TZ' : 'sw-TZ', {
+    style: 'currency', currency: 'TZS', currencyDisplay: 'code', maximumFractionDigits: 0
+  }).format(price);
+  const extraPhotos = images.slice(1).map(id => photo(id, name)).join('');
+  return `<details class="product" data-part="${images[0]}" ${openParts.has(String(images[0])) ? 'open' : ''}>
+    <summary>${photo(images[0], '')}<span class="product-title">${reference}</span></summary>
+    <div class="product-content">
+      <p>${description}</p>
+      ${number ? `<p>${copy.number} <span class="part-number">${number}</span></p>` : ''}
+      ${priceText ? `<p><strong>${priceText}</strong></p>` : ''}
+      <p class="availability">${copy.availability}</p>
+      ${extraPhotos ? `<div class="extra-photos">${extraPhotos}</div>` : ''}
+      <a class="button primary" href="https://wa.me/255787804365?text=${encodeURIComponent(message)}">${priceText ? copy.check : copy.ask}</a>
+    </div>
+  </details>`;
+}
+
+function renderCatalog(preserveOpen = false) {
+  const copy = language === 'en' ? english : swahili;
+  const label = language === 'en' ? 1 : 2;
+  const openParts = new Set(preserveOpen
+    ? Array.from(results.querySelectorAll('details[open]'), element => element.dataset.part)
+    : []);
+  Array.from(controls.children).forEach((button, index) => {
+    const category = categories[index];
+    const selected = category[0] === selectedCategory;
+    button.setAttribute('aria-expanded', String(selected));
+    button.replaceChildren(category[label]);
+    const icon = document.createElement('span');
+    icon.setAttribute('aria-hidden', 'true');
+    icon.textContent = selected ? '−' : '+';
+    button.append(icon);
+  });
+  const active = categories.find(category => category[0] === selectedCategory);
+  results.hidden = !active;
+  results.innerHTML = active
+    ? `<h3 id="category-title" tabindex="-1">${active[label]}</h3><div class="products">${parts
+        .filter(part => part[0] === selectedCategory)
+        .map(part => renderPart(part, copy, openParts))
+        .join('')}</div>`
+    : '';
+}
+
+for (const [id] of categories) {
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'category';
+  button.setAttribute('aria-controls', results.id);
+  button.addEventListener('click', () => {
+    selectedCategory = selectedCategory === id ? null : id;
+    renderCatalog();
+    results.querySelector('h3')?.focus();
+  });
+  controls.append(button);
+}
+
+for (const button of document.querySelectorAll('[data-lang]')) {
+  button.addEventListener('click', () => {
+    language = button.dataset.lang;
+    const copy = language === 'en' ? english : swahili;
+    document.documentElement.lang = language;
+    document.querySelectorAll('[data-copy]').forEach(element => {
+      element.textContent = copy[element.dataset.copy];
+    });
+    document.querySelectorAll('[data-alt]').forEach(element => {
+      element.alt = copy[element.dataset.alt];
+    });
+    document.querySelectorAll('[data-lang]').forEach(option => {
+      option.setAttribute('aria-pressed', String(option === button));
+    });
+    renderCatalog(true);
+  });
+}
+
+renderCatalog();
