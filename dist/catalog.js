@@ -28,7 +28,8 @@ const categories = [
   ['brakes', 'Brakes', 'Breki'], ['clutch', 'Clutch', 'Klachi'],
   ['steering', 'Steering', 'Usukani'], ['suspension', 'Suspension', 'Mfumo wa Kusimamisha Gari'],
   ['bearings', 'Bearings & Hubs', 'Bearing na Hub'], ['belts', 'Belts', 'Mikanda'],
-  ['pumps', 'Pumps', 'Pampu']
+  ['pumps', 'Pumps', 'Pampu'], ['seals', 'Oil Seals', 'Sili za Mafuta'],
+  ['flanges', 'Flanges', 'Flanji']
 ];
 
 const parts = [
@@ -46,7 +47,13 @@ const parts = [
   ['clutch', [13], 'Toyota clutch disc', 'Diski ya klachi ya Toyota', '31250-0K205', 'Toyota clutch disc shown with its labelled box.', 'Diski ya klachi ya Toyota pamoja na boksi lenye lebo.'],
   ['clutch', [14], 'Nissan clutch cover', 'Kifuniko cha klachi cha Nissan', '30210-C8000', 'Nissan clutch cover shown in its labelled packaging.', 'Kifuniko cha klachi cha Nissan kwenye kifurushi chenye lebo.'],
   ['bearings', [15], 'Toyota hub bearing', 'Bearing ya hub ya Toyota', '90369-T0003', 'Toyota hub bearing in protective wrapping alongside its labelled box.', 'Bearing ya hub ya Toyota kwenye kifurushi cha kinga, pamoja na boksi lenye lebo.'],
-  ['brakes', [17], 'Toyota Land Cruiser brake pad kit', 'Seti ya pedi za breki ya Toyota Land Cruiser', '04466-60190', 'Disc brake pad kit labelled for Land Cruiser. Ask the shop to confirm the exact model fit.', 'Seti ya pedi za breki yenye lebo ya Land Cruiser. Thibitisha dukani kama inafaa toleo la gari lako.']
+  ['brakes', [17, 20], 'Toyota Land Cruiser brake pad kit', 'Seti ya pedi za breki ya Toyota Land Cruiser', '04466-60190', 'Disc brake pad kit labelled for Land Cruiser. Ask the shop to confirm the exact model fit.', 'Seti ya pedi za breki yenye lebo ya Land Cruiser. Thibitisha dukani kama inafaa toleo la gari lako.'],
+  ['bearings', [18], 'Toyota Land Cruiser wheel and hub bearings', 'Bearing za gurudumu na hub za Toyota Land Cruiser', '90368-49084 / 90368-45087', 'Two bearing references are shown. Ask which part number fits your Land Cruiser 78 or 79, Prado 150 rear axle, or Land Cruiser LC300.', 'Picha inaonyesha bearing zenye namba mbili tofauti. Uliza ni namba ipi inayofaa Land Cruiser 78 au 79, ekseli ya nyuma ya Prado 150, au Land Cruiser LC300.', null, 'Land Cruiser 78 / 79, Prado 150 rear, or Land Cruiser LC300', 'Land Cruiser 78 / 79, Prado 150 (nyuma), au Land Cruiser LC300'],
+  ['brakes', [19], 'Toyota disc brake pad kit', 'Seti ya pedi za breki za diski za Toyota', '04466-60020', 'Disc brake pad kit shown with its labelled packaging. Ask the shop to confirm vehicle fit.', 'Seti ya pedi za breki za diski pamoja na boksi lenye lebo. Thibitisha dukani kama inafaa gari lako.'],
+  ['seals', [21], 'Toyota oil seal', 'Sili ya mafuta ya Toyota', '90311-62001', 'Toyota Type T oil seal shown in its labelled packaging.', 'Sili ya mafuta ya Toyota aina T kwenye kifurushi chenye lebo.'],
+  ['seals', [22], 'Toyota oil seal', 'Sili ya mafuta ya Toyota', '90310-35010', 'Toyota Type T oil seal shown in its labelled packaging.', 'Sili ya mafuta ya Toyota aina T kwenye kifurushi chenye lebo.'],
+  ['seals', [23], 'Toyota oil seal', 'Sili ya mafuta ya Toyota', '90310-35001', 'Toyota Type T oil seal shown in its labelled packaging.', 'Sili ya mafuta ya Toyota aina T kwenye kifurushi chenye lebo.'],
+  ['flanges', [24], 'Toyota Land Cruiser flange', 'Flanji ya Toyota Land Cruiser', '', 'Flange with a splined centre. Send your vehicle model and chassis number so the shop can confirm fit.', 'Flanji yenye meno katikati. Tuma modeli na namba ya chasi ili duka lithibitishe kama inafaa gari lako.']
 ];
 
 const catalog = document.querySelector('#categories');
@@ -66,13 +73,15 @@ function photo(id, name) {
 }
 
 function renderPart(part, copy, openParts) {
-  const [, images, enName, swName, number, enDescription, swDescription, price] = part;
+  const [, images, enName, swName, number, enDescription, swDescription, price, enFitment, swFitment] = part;
   const name = language === 'en' ? enName : swName;
   const description = language === 'en' ? enDescription : swDescription;
   const reference = number ? `${name} (${number})` : name;
+  const fitment = language === 'en' ? enFitment : swFitment;
+  const inquiryReference = fitment ? `${reference} [${fitment}]` : reference;
   const message = language === 'en'
-    ? `Hello SAMIDOM, can you confirm fit, price, and availability for ${reference}?`
-    : `Habari SAMIDOM, naomba kuthibitisha ulinganifu, bei na upatikanaji wa ${reference}.`;
+    ? `Hello SAMIDOM, can you confirm fit, price, and availability for ${inquiryReference}?`
+    : `Habari SAMIDOM, naomba kuthibitisha ulinganifu, bei na upatikanaji wa ${inquiryReference}.`;
   const priceText = price == null ? '' : new Intl.NumberFormat(language === 'en' ? 'en-TZ' : 'sw-TZ', {
     style: 'currency', currency: 'TZS', currencyDisplay: 'code', maximumFractionDigits: 0
   }).format(price);
