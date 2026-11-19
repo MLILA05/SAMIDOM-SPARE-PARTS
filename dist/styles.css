@@ -24,7 +24,38 @@ h1,h2 { line-height:1.04; letter-spacing:-.045em }
 h1 { font-size:clamp(2.65rem,5.6vw,4.8rem); margin:12px 0 20px }
 h2 { font-size:clamp(2.1rem,4vw,3.2rem) }
 .intro > p:not(.label) { max-width:46ch; color:#515166; margin-bottom:26px }
-.hero-image { display:block; width:100%; height:clamp(300px,33vw,425px); object-fit:cover; object-position:53%; border-bottom:5px solid var(--purple) }
+.vehicle-showcase { min-width:0; overflow:hidden; background:#edf0f4; border:1px solid var(--line); border-bottom:4px solid var(--purple); border-radius:4px }
+.showcase-toolbar { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:4px 12px; min-height:60px; padding:8px 16px }
+.showcase-pause { min-height:44px; padding:4px 8px; border:0; border-radius:4px; background:transparent; color:var(--navy); font-size:.85rem; font-weight:700 }
+.showcase-pause:hover { background:#fff }
+.vehicle-stage { position:relative; isolation:isolate; overflow:hidden; height:clamp(175px,25vw,315px) }
+.vehicle { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:5px; margin:0; visibility:hidden }
+.vehicle:first-child { visibility:visible }
+.vehicle img { display:block; width:76%; min-height:0; max-height:76%; aspect-ratio:768/341; object-fit:contain;
+  mask-image:linear-gradient(to right, transparent, black 4%, black 96%, transparent),
+    linear-gradient(to bottom, transparent, black 5%, black 95%, transparent);
+  mask-composite:intersect;
+}
+.vehicle figcaption { font-size:clamp(1rem,2.1vw,1.45rem); font-weight:800 }
+@media (prefers-reduced-motion:no-preference) {
+  .vehicle-showcase[data-playing] .vehicle { visibility:visible; opacity:0; animation:vehicle-pass 54s linear infinite both; animation-delay:var(--delay, 0s) }
+  .vehicle:nth-child(2) { --delay:9s }
+  .vehicle:nth-child(3) { --delay:18s }
+  .vehicle:nth-child(4) { --delay:27s }
+  .vehicle:nth-child(5) { --delay:36s }
+  .vehicle:nth-child(6) { --delay:45s }
+  .vehicle-showcase[data-paused] .vehicle { animation-play-state:paused }
+}
+@media (prefers-reduced-motion:reduce) {
+  .showcase-pause { display:none }
+}
+@keyframes vehicle-pass {
+  0% { transform:translateX(64%); opacity:0 }
+  4% { transform:translateX(12%); opacity:1; animation-timing-function:ease-in-out }
+  12% { transform:translateX(-12%); opacity:1 }
+  16.6667% { transform:translateX(-64%); opacity:0 }
+  100% { transform:translateX(-64%); opacity:0 }
+}
 .button { display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:10px 18px; border-radius:4px; font-weight:750; text-decoration:none }
 .primary { background:var(--red); color:white }
 .primary:hover { background:#93152d }
@@ -78,7 +109,6 @@ footer { padding:18px 0; color:#dedde8; font-size:.86rem }
   nav { grid-row:2; grid-column:1/-1 }
   nav a { display:inline-flex; align-items:center; min-height:44px }
   .hero-inner,.visit-inner { grid-template-columns:1fr; padding-block:34px }
-  .hero-image { height:225px }
   .category-controls { grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px }
   .category { padding:10px; font-size:.94rem }
   .catalog { padding-block:40px }
