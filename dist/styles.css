@@ -27,22 +27,19 @@ h2 { font-size:clamp(2.1rem,4vw,3.2rem) }
 .vehicle-showcase { min-width:0; overflow:hidden; background:#edf0f4; border:1px solid var(--line); border-bottom:4px solid var(--purple); border-radius:4px }
 .showcase-heading { padding:16px 16px 0 }
 .vehicle-stage { position:relative; isolation:isolate; overflow:hidden; height:clamp(175px,25vw,315px) }
-.vehicle { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:5px; margin:0; visibility:hidden }
-.vehicle:first-child { visibility:visible }
+.vehicle { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:5px; margin:0;
+  opacity:0; animation:vehicle-pass 72s linear infinite both; animation-delay:var(--delay, 0s) }
 .vehicle img { display:block; width:76%; min-height:0; max-height:76%; aspect-ratio:768/341; object-fit:contain;
   mask-image:linear-gradient(to right, transparent, black 4%, black 96%, transparent),
     linear-gradient(to bottom, transparent, black 5%, black 95%, transparent);
   mask-composite:intersect;
 }
 .vehicle figcaption { font-size:clamp(1rem,2.1vw,1.45rem); font-weight:800 }
-@media (prefers-reduced-motion:no-preference) {
-  .vehicle { visibility:visible; opacity:0; animation:vehicle-pass 72s linear infinite both; animation-delay:var(--delay, 0s) }
-  .vehicle:nth-child(2) { --delay:12s }
-  .vehicle:nth-child(3) { --delay:24s }
-  .vehicle:nth-child(4) { --delay:36s }
-  .vehicle:nth-child(5) { --delay:48s }
-  .vehicle:nth-child(6) { --delay:60s }
-}
+.vehicle:nth-child(2) { --delay:12s }
+.vehicle:nth-child(3) { --delay:24s }
+.vehicle:nth-child(4) { --delay:36s }
+.vehicle:nth-child(5) { --delay:48s }
+.vehicle:nth-child(6) { --delay:60s }
 @keyframes vehicle-pass {
   0% { transform:translateX(64%); opacity:0 }
   4% { transform:translateX(12%); opacity:1; animation-timing-function:ease-in-out }
