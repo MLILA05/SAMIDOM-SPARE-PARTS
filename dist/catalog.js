@@ -8,7 +8,8 @@ const english = {
   directions: 'Get Directions', call: 'Call Shop', hours: 'Opening Hours',
   week: 'Monday–Saturday', time: '8:00 AM–6:30 PM', sunday: 'Sunday', closed: 'Closed',
   number: 'Part number', availability: 'Confirm availability on WhatsApp before visiting.',
-  ask: 'Ask for price on WhatsApp', check: 'Check on WhatsApp'
+  ask: 'Ask for price on WhatsApp', check: 'Check on WhatsApp',
+  fullPhoto: 'View full-size photo'
 };
 
 const swahili = {
@@ -21,7 +22,8 @@ const swahili = {
   directions: 'Pata Maelekezo', call: 'Piga Simu', hours: 'Saa za Kazi',
   week: 'Jumatatu–Jumamosi', time: '08:00–18:30', sunday: 'Jumapili', closed: 'Tumefunga',
   number: 'Namba ya kipuri', availability: 'Thibitisha upatikanaji kupitia WhatsApp kabla ya kuja dukani.',
-  ask: 'Uliza bei kupitia WhatsApp', check: 'Uliza kupitia WhatsApp'
+  ask: 'Uliza bei kupitia WhatsApp', check: 'Uliza kupitia WhatsApp',
+  fullPhoto: 'Fungua picha kwa ukubwa kamili'
 };
 
 const categories = [
@@ -85,7 +87,12 @@ function renderPart(part, copy, openParts) {
   const priceText = price == null ? '' : new Intl.NumberFormat(language === 'en' ? 'en-TZ' : 'sw-TZ', {
     style: 'currency', currency: 'TZS', currencyDisplay: 'code', maximumFractionDigits: 0
   }).format(price);
-  const extraPhotos = images.slice(1).map(id => photo(id, name)).join('');
+  const photoLinks = images.map((id, index) => {
+    const label = images.length === 1 ? copy.fullPhoto : `${copy.fullPhoto} ${index + 1}`;
+    return `<a href="assets/part-${id}.jpg" target="_blank" rel="noopener">
+      ${index > 0 ? photo(id, '') : ''}<span>${label}</span>
+    </a>`;
+  }).join('');
   return `<details class="product" data-part="${images[0]}" ${openParts.has(String(images[0])) ? 'open' : ''}>
     <summary>${photo(images[0], '')}<span class="product-title">${reference}</span></summary>
     <div class="product-content">
@@ -93,7 +100,7 @@ function renderPart(part, copy, openParts) {
       ${number ? `<p>${copy.number} <span class="part-number">${number}</span></p>` : ''}
       ${priceText ? `<p><strong>${priceText}</strong></p>` : ''}
       <p class="availability">${copy.availability}</p>
-      ${extraPhotos ? `<div class="extra-photos">${extraPhotos}</div>` : ''}
+      <div class="product-photos">${photoLinks}</div>
       <a class="button primary" href="https://wa.me/255787804365?text=${encodeURIComponent(message)}">${priceText ? copy.check : copy.ask}</a>
     </div>
   </details>`;
