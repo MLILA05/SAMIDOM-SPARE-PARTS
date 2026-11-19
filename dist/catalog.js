@@ -6,7 +6,7 @@ const english = {
   vehicles: 'VEHICLE MAKES', choose: 'Choose a category to see its parts.',
   pickup: 'Collect your parts from our shop on Msimbazi Street.',
   directions: 'Get Directions', call: 'Call Shop', hours: 'Opening Hours',
-  week: 'Monday–Saturday', time: '8:00 AM–6:30 PM', sunday: 'Sunday', closed: 'Closed',
+  week: 'Monday–Saturday', time: '8:00 AM–6:30 PM', sunday: 'Sunday', sundayTime: '8:00 AM–2:30 PM',
   number: 'Part number', availability: 'Confirm availability on WhatsApp before visiting.',
   ask: 'Ask for price on WhatsApp', check: 'Check on WhatsApp',
   fullPhoto: 'View full-size photo', showcaseLabel: 'PARTS FOR YOUR VEHICLE'
@@ -20,7 +20,7 @@ const swahili = {
   vehicles: 'CHAPA ZA MAGARI', choose: 'Chagua kategoria ili kuona vipuri vyake.',
   pickup: 'Chukua vipuri vyako dukani kwetu, Mtaa wa Msimbazi.',
   directions: 'Pata Maelekezo', call: 'Piga Simu', hours: 'Saa za Kazi',
-  week: 'Jumatatu–Jumamosi', time: '08:00–18:30', sunday: 'Jumapili', closed: 'Tumefunga',
+  week: 'Jumatatu–Jumamosi', time: '08:00–18:30', sunday: 'Jumapili', sundayTime: '08:00–14:30',
   number: 'Namba ya kipuri', availability: 'Thibitisha upatikanaji kupitia WhatsApp kabla ya kuja dukani.',
   ask: 'Uliza bei kupitia WhatsApp', check: 'Uliza kupitia WhatsApp',
   fullPhoto: 'Fungua picha kwa ukubwa kamili', showcaseLabel: 'VIPURI VYA GARI LAKO'
