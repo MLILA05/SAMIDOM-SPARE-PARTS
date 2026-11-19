@@ -9,8 +9,7 @@ const english = {
   week: 'Monday–Saturday', time: '8:00 AM–6:30 PM', sunday: 'Sunday', closed: 'Closed',
   number: 'Part number', availability: 'Confirm availability on WhatsApp before visiting.',
   ask: 'Ask for price on WhatsApp', check: 'Check on WhatsApp',
-  fullPhoto: 'View full-size photo', showcaseLabel: 'PARTS FOR YOUR VEHICLE',
-  pauseMotion: 'Pause motion', resumeMotion: 'Resume motion'
+  fullPhoto: 'View full-size photo', showcaseLabel: 'PARTS FOR YOUR VEHICLE'
 };
 
 const swahili = {
@@ -24,8 +23,7 @@ const swahili = {
   week: 'Jumatatu–Jumamosi', time: '08:00–18:30', sunday: 'Jumapili', closed: 'Tumefunga',
   number: 'Namba ya kipuri', availability: 'Thibitisha upatikanaji kupitia WhatsApp kabla ya kuja dukani.',
   ask: 'Uliza bei kupitia WhatsApp', check: 'Uliza kupitia WhatsApp',
-  fullPhoto: 'Fungua picha kwa ukubwa kamili', showcaseLabel: 'VIPURI VYA GARI LAKO',
-  pauseMotion: 'Sitisha mwendo', resumeMotion: 'Endeleza mwendo'
+  fullPhoto: 'Fungua picha kwa ukubwa kamili', showcaseLabel: 'VIPURI VYA GARI LAKO'
 };
 
 const categories = [
@@ -176,13 +174,3 @@ for (const button of document.querySelectorAll('[data-lang]')) {
 }
 
 renderCatalog();
-
-const showcase = document.querySelector('[data-vehicle-showcase]');
-const pauseMotion = showcase.querySelector('[data-showcase-pause]');
-pauseMotion.addEventListener('click', () => {
-  const paused = showcase.toggleAttribute('data-paused');
-  pauseMotion.dataset.copy = paused ? 'resumeMotion' : 'pauseMotion';
-  pauseMotion.textContent = (language === 'en' ? english : swahili)[pauseMotion.dataset.copy];
-});
-showcase.setAttribute('data-playing', '');
-pauseMotion.hidden = false;
