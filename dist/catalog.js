@@ -31,7 +31,8 @@ const categories = [
   ['steering', 'Steering', 'Usukani'], ['suspension', 'Suspension', 'Mfumo wa Kusimamisha Gari'],
   ['bearings', 'Bearings & Hubs', 'Bearing na Hub'], ['belts', 'Belts', 'Mikanda'],
   ['pumps', 'Pumps', 'Pampu'], ['seals', 'Oil Seals', 'Sili za Mafuta'],
-  ['flanges', 'Flanges', 'Flanji']
+  ['flanges', 'Flanges', 'Flanji'], ['engine', 'Engine Parts', 'Vipuri vya Injini'],
+  ['drivetrain', 'Axles & Drive Shafts', 'Ekseli na Shafuti']
 ];
 
 const parts = [
@@ -48,7 +49,7 @@ const parts = [
   ['clutch', [11], 'EXEDY clutch disc', 'Diski ya klachi ya EXEDY', '30100-VB201', 'EXEDY replacement clutch disc with a sprung centre.', 'Diski mbadala ya klachi ya EXEDY yenye springi katikati.'],
   ['clutch', [12, 16], 'Clutch master cylinder', 'Silinda kuu ya klachi', '', 'Hydraulic clutch component with a pushrod and mounting studs. Confirm fit with the shop.', 'Sehemu ya mfumo wa majimaji wa klachi yenye fimbo ya kusukuma na bolti za kufungia. Thibitisha ulinganifu dukani.'],
   ['clutch', [13], 'Toyota clutch disc', 'Diski ya klachi ya Toyota', '31250-0K205', 'Toyota clutch disc shown with its labelled box.', 'Diski ya klachi ya Toyota pamoja na boksi lenye lebo.'],
-  ['clutch', [14], 'Nissan clutch cover', 'Kifuniko cha klachi cha Nissan', '30210-C8000', 'Nissan clutch cover shown in its labelled packaging.', 'Kifuniko cha klachi cha Nissan kwenye kifurushi chenye lebo.'],
+  ['clutch', [31, 14], 'Nissan clutch cover', 'Kifuniko cha klachi cha Nissan', '30210-C8000', 'Nissan clutch cover shown with its labelled packaging.', 'Kifuniko cha klachi cha Nissan pamoja na kifurushi chenye lebo.'],
   ['bearings', [15], 'Toyota hub bearing', 'Bearing ya hub ya Toyota', '90369-T0003', 'Toyota hub bearing in protective wrapping alongside its labelled box.', 'Bearing ya hub ya Toyota kwenye kifurushi cha kinga, pamoja na boksi lenye lebo.'],
   ['brakes', [17, 20], 'Toyota Land Cruiser brake pad kit', 'Seti ya pedi za breki ya Toyota Land Cruiser', '04466-60190', 'Disc brake pad kit labelled for Land Cruiser. Ask the shop to confirm the exact model fit.', 'Seti ya pedi za breki yenye lebo ya Land Cruiser. Thibitisha dukani kama inafaa toleo la gari lako.'],
   ['bearings', [18], 'Toyota Land Cruiser wheel and hub bearings', 'Bearing za gurudumu na hub za Toyota Land Cruiser', '90368-49084 / 90368-45087', 'Two bearing references are shown. Ask which part number fits your Land Cruiser 78 or 79, Prado 150 rear axle, or Land Cruiser LC300.', 'Picha inaonyesha bearing zenye namba mbili tofauti. Uliza ni namba ipi inayofaa Land Cruiser 78 au 79, ekseli ya nyuma ya Prado 150, au Land Cruiser LC300.', null, 'Land Cruiser 78 / 79, Prado 150 rear, or Land Cruiser LC300', 'Land Cruiser 78 / 79, Prado 150 (nyuma), au Land Cruiser LC300'],
@@ -56,7 +57,15 @@ const parts = [
   ['seals', [21], 'Toyota oil seal', 'Sili ya mafuta ya Toyota', '90311-62001', 'Toyota Type T oil seal shown in its labelled packaging.', 'Sili ya mafuta ya Toyota aina T kwenye kifurushi chenye lebo.'],
   ['seals', [22], 'Toyota oil seal', 'Sili ya mafuta ya Toyota', '90310-35010', 'Toyota Type T oil seal shown in its labelled packaging.', 'Sili ya mafuta ya Toyota aina T kwenye kifurushi chenye lebo.'],
   ['seals', [23], 'Toyota oil seal', 'Sili ya mafuta ya Toyota', '90310-35001', 'Toyota Type T oil seal shown in its labelled packaging.', 'Sili ya mafuta ya Toyota aina T kwenye kifurushi chenye lebo.'],
-  ['flanges', [24], 'Toyota Land Cruiser flange', 'Flanji ya Toyota Land Cruiser', '', 'Flange with a splined centre. Send your vehicle model and chassis number so the shop can confirm fit.', 'Flanji yenye meno katikati. Tuma modeli na namba ya chasi ili duka lithibitishe kama inafaa gari lako.']
+  ['flanges', [24], 'Toyota Land Cruiser flange', 'Flanji ya Toyota Land Cruiser', '', 'Flange with a splined centre. Send your vehicle model and chassis number so the shop can confirm fit.', 'Flanji yenye meno katikati. Tuma modeli na namba ya chasi ili duka lithibitishe kama inafaa gari lako.'],
+  ['brakes', [26], 'Toyota front brake disc', 'Diski ya breki ya mbele ya Toyota', '43512-60141', 'Ventilated front brake disc shown with its labelled packaging.', 'Diski ya breki ya mbele yenye nafasi za kupitisha hewa, pamoja na boksi lenye lebo.'],
+  ['engine', [27], 'IZUMI 4D33 cylinder liner set', 'Seti ya liner za silinda za IZUMI 4D33', 'ME013333', 'The package is labelled for the 4D33 engine and contains four liners per set.', 'Lebo inaonyesha seti ya liner nne kwa injini ya 4D33.'],
+  ['drivetrain', [28], 'Stub axle', 'Spindeli ya ekseli', '', 'Stub axle with a threaded end and a mounting flange.', 'Spindeli ya ekseli yenye ncha ya uzi na flanji ya kufungia.'],
+  ['steering', [29], 'Power steering pump', 'Pampu ya usukani wa majimaji', '', 'Hydraulic steering pump with a pulley and fluid reservoir.', 'Pampu ya usukani wa majimaji yenye puli na hifadhi ya mafuta.'],
+  ['steering', [30], 'Steering damper', 'Damper ya usukani', '', 'Steering damper shown alongside its packaging.', 'Damper ya usukani pamoja na kifurushi chake.'],
+  ['seals', [32], 'Nissan crankshaft oil seal', 'Sili ya mafuta ya crankshaft ya Nissan', '12279-43G05', 'Crankshaft oil seal shown with its mounting housing.', 'Sili ya mafuta ya crankshaft iliyoonyeshwa pamoja na nyumba yake ya kufungia.'],
+  ['drivetrain', [33], 'CV drive shaft', 'Shafuti ya kuendesha gurudumu (CV)', '', 'CV drive shaft with inner and outer joints. Ask the shop to confirm the side and vehicle fit.', 'Shafuti yenye viungio vya CV vya ndani na nje. Thibitisha dukani upande na ulinganifu wake.'],
+  ['suspension', [34], 'Toyota Hilux Revo shock absorbers', 'Shock absorber za Toyota Hilux Revo', '', 'Shock absorbers for Toyota Hilux Revo. Ask the shop to confirm fit for your model year.', 'Shock absorber za Toyota Hilux Revo. Thibitisha dukani kama zinafaa mwaka wa gari lako.']
 ];
 
 const catalog = document.querySelector('#categories');
