@@ -81,7 +81,7 @@ let language = 'en';
 let selectedCategory = null;
 
 function photo(id, name) {
-  return `<img src="assets/part-${id}.jpg" alt="${name}" loading="lazy" width="400" height="205">`;
+  return `<span class="product-image"><img src="assets/part-${id}.jpg" alt="${name}" loading="lazy" width="400" height="205"></span>`;
 }
 
 function renderPart(part, copy, openParts) {
