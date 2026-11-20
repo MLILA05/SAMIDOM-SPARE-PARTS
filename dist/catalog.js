@@ -13,17 +13,17 @@ const english = {
 };
 
 const swahili = {
-  brandLine: 'VIPURI NA HUDUMA', parts: 'Vipuri', visit: 'Tutembelee',
-  street: 'MTAA WA MSIMBAZI', heading: 'Vipuri kwa ajili ya ukarabati wa gari lako.',
-  intro: 'SAMIDOM inauza vipuri vya magari kwa madereva, mafundi na gereji. Angalia katalogi yetu kisha tuulize kuhusu ulinganifu wa kipuri, bei na upatikanaji kabla ya kutembelea duka.',
-  browse: 'Angalia Vipuri', heroAlt: 'Reki za usukani na masanduku ya vipuri katika duka la SAMIDOM',
-  vehicles: 'CHAPA ZA MAGARI', choose: 'Chagua kategoria ili kuona vipuri vyake.',
-  pickup: 'Chukua vipuri vyako dukani kwetu, Mtaa wa Msimbazi.',
+  brandLine: 'VIFAA NA HUDUMA', parts: 'Vifaa', visit: 'Tutembelee',
+  street: 'MTAA WA MSIMBAZI', heading: 'Vifaa kwa ajili ya ukarabati wa gari lako.',
+  intro: 'SAMIDOM inauza vifaa vya magari kwa madereva, mafundi na gereji. Angalia katalogi yetu kisha tuulize kuhusu ulinganifu wa kifaa, bei na upatikanaji kabla ya kutembelea duka.',
+  browse: 'Angalia Vifaa', heroAlt: 'Reki za usukani na masanduku ya vifaa katika duka la SAMIDOM',
+  vehicles: 'CHAPA ZA MAGARI', choose: 'Chagua kategoria ili kuona vifaa vyake.',
+  pickup: 'Chukua vifaa vyako dukani kwetu, Mtaa wa Msimbazi.',
   directions: 'Pata Maelekezo', call: 'Piga Simu', hours: 'Saa za Kazi',
   week: 'Jumatatu–Jumamosi', time: '08:00–18:30', sunday: 'Jumapili', sundayTime: '08:00–14:30',
-  number: 'Namba ya kipuri', availability: 'Thibitisha upatikanaji kupitia WhatsApp kabla ya kuja dukani.',
+  number: 'Namba ya kifaa', availability: 'Thibitisha upatikanaji kupitia WhatsApp kabla ya kuja dukani.',
   ask: 'Uliza bei kupitia WhatsApp', check: 'Uliza kupitia WhatsApp',
-  fullPhoto: 'Fungua picha kwa ukubwa kamili', showcaseLabel: 'VIPURI VYA GARI LAKO'
+  fullPhoto: 'Fungua picha kwa ukubwa kamili', showcaseLabel: 'VIFAA VYA GARI LAKO'
 };
 
 const categories = [
@@ -31,7 +31,7 @@ const categories = [
   ['steering', 'Steering', 'Usukani'], ['suspension', 'Suspension', 'Mfumo wa Kusimamisha Gari'],
   ['bearings', 'Bearings & Hubs', 'Bearing na Hub'], ['belts', 'Belts', 'Mikanda'],
   ['pumps', 'Pumps', 'Pampu'], ['seals', 'Oil Seals', 'Sili za Mafuta'],
-  ['flanges', 'Flanges', 'Flanji'], ['engine', 'Engine Parts', 'Vipuri vya Injini'],
+  ['flanges', 'Flanges', 'Flanji'], ['engine', 'Engine Parts', 'Vifaa vya Injini'],
   ['drivetrain', 'Axles & Drive Shafts', 'Ekseli na Shafuti']
 ];
 
@@ -39,13 +39,13 @@ const parts = [
   ['bearings', [1], 'Tapered roller bearing', 'Bearing ya rola za koni', '90366-20003', 'Toyota tapered roller bearing shown with its packaging.', 'Bearing ya Toyota yenye rola za koni, pamoja na kifurushi chake.'],
   ['steering', [2, 3], 'Steering rack assemblies', 'Reki za usukani', '', 'Steering rack assemblies with protective boots. Ask the shop which version fits your vehicle.', 'Reki za usukani zenye mipira ya kinga. Uliza dukani aina inayolingana na gari lako.'],
   ['pumps', [4], 'Vacuum pump', 'Pampu ya utupu', '14650-7T411', 'Gear-driven vacuum pump. Check compatibility with the shop.', 'Pampu ya utupu inayoendeshwa kwa gia. Thibitisha ulinganifu dukani.'],
-  ['brakes', [5], 'Toyota brake drum', 'Daramu ya breki ya Toyota', '42431-60250', 'Toyota brake drum with the part number marked on the rim.', 'Daramu ya breki ya Toyota yenye namba ya kipuri kwenye ukingo.'],
+  ['brakes', [5], 'Toyota brake drum', 'Daramu ya breki ya Toyota', '42431-60250', 'Toyota brake drum with the part number marked on the rim.', 'Daramu ya breki ya Toyota yenye namba ya kifaa kwenye ukingo.'],
   ['brakes', [25], 'Toyota brake drum', 'Daramu ya breki ya Toyota', '42431-0K120', 'Toyota brake drum shown with its labelled packaging. Ask the shop to confirm fit for your vehicle.', 'Daramu ya breki ya Toyota iliyoonyeshwa pamoja na boksi lenye lebo. Thibitisha dukani kama inafaa gari lako.'],
   ['belts', [6], 'Toyota drive belt', 'Mkanda wa Toyota', '90916-T2006', 'Multi-rib drive belt. Confirm the correct belt for your engine.', 'Mkanda wenye mbavu nyingi. Thibitisha mkanda unaofaa injini yako.'],
   ['suspension', [7], 'Suspension coil springs', 'Springi za kusimamisha gari', '', 'Coil springs for the suspension system. Share your vehicle details to check fit.', 'Springi za mfumo wa kusimamisha gari. Tuma taarifa za gari lako ili kuthibitisha ulinganifu.'],
   ['bearings', [8], 'Wheel hub assembly', 'Hub ya gurudumu', '', 'Wheel hub assembly with a splined centre and mounting studs.', 'Hub ya gurudumu yenye meno katikati na bolti za kufungia.'],
   ['brakes', [9], 'Toyota brake disc', 'Diski ya breki ya Toyota', '43512-60150', 'Toyota brake disc shown alongside its labelled packaging.', 'Diski ya breki ya Toyota pamoja na kifurushi chenye lebo.'],
-  ['clutch', [10], 'Toyota clutch disc', 'Diski ya klachi ya Toyota', '31250-60430', 'Clutch disc with the part number marked on the centre plate.', 'Diski ya klachi yenye namba ya kipuri kwenye sehemu ya katikati.'],
+  ['clutch', [10], 'Toyota clutch disc', 'Diski ya klachi ya Toyota', '31250-60430', 'Clutch disc with the part number marked on the centre plate.', 'Diski ya klachi yenye namba ya kifaa kwenye sehemu ya katikati.'],
   ['clutch', [11], 'EXEDY clutch disc', 'Diski ya klachi ya EXEDY', '30100-VB201', 'EXEDY replacement clutch disc with a sprung centre.', 'Diski mbadala ya klachi ya EXEDY yenye springi katikati.'],
   ['clutch', [12, 16], 'Clutch master cylinder', 'Silinda kuu ya klachi', '', 'Hydraulic clutch component with a pushrod and mounting studs. Confirm fit with the shop.', 'Sehemu ya mfumo wa majimaji wa klachi yenye fimbo ya kusukuma na bolti za kufungia. Thibitisha ulinganifu dukani.'],
   ['clutch', [13], 'Toyota clutch disc', 'Diski ya klachi ya Toyota', '31250-0K205', 'Toyota clutch disc shown with its labelled box.', 'Diski ya klachi ya Toyota pamoja na boksi lenye lebo.'],
